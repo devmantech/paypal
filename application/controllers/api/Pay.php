@@ -84,11 +84,12 @@ class Pay extends CI_Controller	{
 			try {
 				$payment = Payment::get($payment_id, $this->apiContext);
 			} catch (Exception $ex) {
-				ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
+				echo '<pre>';
+				print_r($ex);
 				exit(1);
 			}
+			echo '<pre>';
 			print_r($payment);
-			//ResultPrinter::printResult("Get Payment", "Payment", $payment->getId(), null, $payment);
 		}	else	{
 			$this->response('you cancelled payment');
 		}
